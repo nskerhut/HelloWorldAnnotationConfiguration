@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author sskerhut
+ *
+ */
+public class DatabaseView {
+
+	/**
+	 * 
+	 */
+	public DatabaseView() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

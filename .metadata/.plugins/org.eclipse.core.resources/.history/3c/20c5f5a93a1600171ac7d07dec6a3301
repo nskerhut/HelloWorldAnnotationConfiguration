@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author tonyseely
+ *
+ */
+public class EmployeeDatabaseView {
+	public boolean RegisterEmployee(final EmployeeModel employee, final int ModifyUserId){
+		return false;
+	}
+	public boolean ModifyEmployee(final EmployeeModel employee, final int ModifyUserId){
+		
+		return false;
+	}
+	public boolean TerminateEmployee(final EmployeeModel employee, final int ModifyUserId) {
+		return false;
+	}
+	public EmployeeModel GetEmployee(final EmployeeModel employee) { 
+		return null;
+	}
+}

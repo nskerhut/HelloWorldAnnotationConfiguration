@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.csra.autowire;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * @author sskerhut
+ *
+ */
+public class HelloSystem {
+	
+	@Autowired  //property autowire
+	private HelloWorldModel helloWorldModel;
+	/**
+	 * 
+	 */
+	public HelloSystem() {
+		// TODO Auto-generated constructor stub
+	}
+	//@Autowired //constructor autowire
+	public HelloSystem(HelloWorldModel myModel){
+		myModel.setValue("Constructor autowire annotation");
+		this.helloWorldModel = myModel;
+	}
+	/**
+	 * @return the helloWorldModel
+	 */
+	public HelloWorldModel getHelloWorldModel() {
+		return helloWorldModel;
+	}
+	/**
+	 * @param helloWorldModel the helloWorldModel to set
+	 */
+	public void setHelloWorldModel(HelloWorldModel helloWorldModel) {
+		this.helloWorldModel = helloWorldModel;
+	}
+
+}

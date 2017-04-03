@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.csra.itc.sharknado.userservice.v1.controllers;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author sskerhut
+ *
+ */
+public class UserControllerTest {
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link com.csra.itc.sharknado.userservice.api.v1.controllers.UserController#checkUsername(java.lang.String)}.
+	 */
+	@Test
+	public void testCheckUsername() {
+		fail("Not yet implemented"); // TODO
+	}
+
+}

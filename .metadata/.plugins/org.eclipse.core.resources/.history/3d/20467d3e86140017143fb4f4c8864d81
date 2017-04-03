@@ -1,0 +1,12 @@
+package HelloWorldMaven;
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		HelloWorldModel model = new HelloWorldModel();
+		
+		System.out.println(model.getValue());
+
+	}
+
+}

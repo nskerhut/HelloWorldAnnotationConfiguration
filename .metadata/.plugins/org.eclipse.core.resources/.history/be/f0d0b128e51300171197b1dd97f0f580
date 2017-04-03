@@ -1,0 +1,31 @@
+package com.csra.itc.sharknado.userservice.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.DriverManager;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DatabaseDriver {
+
+    @Bean
+    public Connection getDriver(){
+		String connectionUrl = "jdbc:mysql://10.0.1.186:3306/userservice";
+		String connectionUser = "sskerhut";
+		String connectionPassword = "";
+
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(connectionUrl, connectionUser, connectionPassword);
+
+		}catch( Exception ex ){
+			 System.out.println("Connection Failed");
+			 ex.printStackTrace();
+		}
+
+		return conn;
+
+    }
+}

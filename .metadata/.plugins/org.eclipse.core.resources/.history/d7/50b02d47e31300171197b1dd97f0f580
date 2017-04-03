@@ -1,0 +1,55 @@
+/**
+ * 
+ */
+package com.csra.itc.sharknado.userservice.v1.controllers;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.csra.itc.sharknado.userservice.api.v1.controllers.UserController;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import org.springframework.context.ApplicationContext;
+/**
+ * @author sskerhut
+ *
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { UserController.class })
+public class UserControllerTest {
+
+	//@SuppressWarnings("SpringJavaAutowiringInspection")
+	@Autowired
+	//ApplicationContext context;
+	private UserController uc;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		//uc = new UserController();
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link com.csra.itc.sharknado.userservice.api.v1.controllers.UserController#checkUsername(java.lang.String)}.
+	 */
+	@Test
+	public void testSetId() {
+		//UserController uc = (UserController)context.getBean("UserController");
+		uc.setId("testUser");
+		fail("Not yet implemented"); // TODO
+	}
+
+}

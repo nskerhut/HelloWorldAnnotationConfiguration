@@ -1,0 +1,19 @@
+
+html{
+  height: 100vh;
+}
+body {
+  min-height: 100vh;
+  background-image: url("/assets/image/sharknadologo.png");
+  background-size: 20% 50%;
+  background-repeat: no-repeat;
+  
+}
+
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 25px;
+  padding: 80px 50px;
+  text-align: center;
+}
+      

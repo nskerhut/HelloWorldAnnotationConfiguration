@@ -1,0 +1,13 @@
+<ul class="nav-bar">
+  <li class="nav-item"><a class="nav-item nav-name" href="#">Sharknado</a></li>
+  <li class="nav-item"><a class="nav-item"[routerLink]="['']">Home</a></li>
+
+
+  <!--<li class="nav-item"><a class="nav-item"[routerLink]="['/users']">Users</a></li> -->
+
+  <li *ngIf="loginBool"  class="nav-item item-right"><a  class="nav-item"[routerLink]="['/login']">Login</a></li>
+  <li *ngIf="!loginBool" class="nav-item item-right"><a [routerLink]="['/']" (click)="logout()" class="nav-item" >Logout</a></li>
+  <li class="nav-item item-right"><a class="nav-item"[routerLink]="['/register']">Register</a></li>
+  <li *ngIf="!loginBool"class="nav-item"><a class="nav-item"[routerLink]="['/user']">User</a></li>
+
+</ul>

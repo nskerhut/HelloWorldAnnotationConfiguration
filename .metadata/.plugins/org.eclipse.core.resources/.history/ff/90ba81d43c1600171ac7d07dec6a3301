@@ -1,0 +1,70 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * Provides a webservice view on the actions on Employees
+ * @author tonyseely
+ *
+ */
+public class EmployeeMicroserviceView {
+
+	/**
+	 * Creates a new Employee webservice.
+	 * @param employee
+	 * @param UserId
+	 * @return success status of registration
+	 */
+	public boolean RegisterEmployee(final EmployeeModel employee, final int UserId)
+	{
+		return false;
+	}
+	/**
+	 * Update an employee webservice
+	 * @param employee
+	 * @param UserId
+	 * @return success status of registration
+	 */
+	public boolean ModifyEmployee(final EmployeeModel employee, final int UserId)
+	{
+		return false;
+	}
+	
+	/**
+	 * Terminates an employee webservice 
+	 * @param employee
+	 * @param UserId
+	 * @return success status of registration
+	 */
+	public boolean TerminateEmployee(final EmployeeModel employee, final int UserId)
+	{
+		return false;
+	}
+	
+	/**
+	 * Sets the session token.
+	 * @param token
+	 */
+	public void SetSessionToken(String token)
+	{
+		
+	}
+	/**
+	 * Checks if token is still valid. 
+	 * @param token
+	 * @return Verification status
+	 */
+	public boolean VerifySessionToken(String token)
+	{
+		return true;
+	}
+	/**
+	 * Retrieve the userid from the url.
+	 * @return
+	 */
+	protected int GetUserId()
+	{
+		return 0;
+	}
+}

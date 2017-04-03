@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author sskerhut
+ * Provides connectivity to Database for EmployeeServiceController
+ */
+public class DatabaseView {
+
+	/**
+	 * 
+	 */
+	public DatabaseView() {
+
+	}
+
+}

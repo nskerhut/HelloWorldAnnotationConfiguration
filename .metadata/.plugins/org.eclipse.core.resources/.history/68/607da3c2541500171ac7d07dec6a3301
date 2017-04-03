@@ -1,0 +1,21 @@
+package com.csra.autowire;
+
+public class HelloVenus implements IHelloPlanets {
+
+	public HelloVenus() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setValue(String value) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

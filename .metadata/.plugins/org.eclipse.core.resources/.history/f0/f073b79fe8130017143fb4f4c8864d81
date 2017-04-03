@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.center{
+  text-align: center;
+}
+.left{
+  display: inline-block;
+  text-align: left;
+  padding-bottom: 5%;
+}
+
+.spacing{
+    letter-spacing: 5px;
+}
+#wrapper {
+	/* Center wrapper perfectly */
+	width: 300px;
+	height: 400px;
+	margin: 15% auto;
+}
+
+.buttons{
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+.form-item{
+  padding: 5px 5px;
+
+}
+
+.input{
+padding: 10px;
+width: 200px;
+font-size: 12px;
+}
+.btn{
+  display: inline-block;
+  font-size: 16px;
+
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  padding: 12px 24px;
+  border-radius: 2px;
+}
+.btn-yes{
+
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+
+}
+.btn-yes:hover {
+  background-color: #555555;
+  color: white;
+}
+.btn-no{
+
+  background-color: white;
+  color: rgb(255, 69, 69);
+  border: 2px solid rgb(255, 69, 69);
+
+}
+.btn-no:hover {
+  background-color: rgb(255, 69, 69);
+  color: white;
+}
+
+.alert-success {
+color: #468847;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+
+.alert-fail {
+color: #c45353;
+background-color: #f0d8d8;
+border-color: #e9c6c6;
+}
+
+.alert {
+padding: 8px 35px 8px 14px;
+margin-bottom: 18px;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.alert-heading {
+color: inherit;
+}
+
+.alert .close {
+position: relative;
+top: -2px;
+right: -21px;
+line-height: 18px;
+}

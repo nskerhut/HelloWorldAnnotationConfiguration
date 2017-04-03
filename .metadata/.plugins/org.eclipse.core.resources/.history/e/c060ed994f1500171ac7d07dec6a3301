@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.csra.autowire;
+
+/**
+ * @author sskerhut
+ *
+ */
+public class HelloSystem {
+
+	/**
+	 * 
+	 */
+	public HelloSystem() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

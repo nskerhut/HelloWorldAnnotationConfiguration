@@ -1,0 +1,24 @@
+package com.csra.autowire;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+public class HelloWorldModel {
+	private String value;
+
+	/**
+	 * @return the value
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value the value to set
+	 */
+	@Autowired
+	public void setValue(@Value("Hello World value annotation!!") String value) {
+		this.value = value;
+	}
+	
+}

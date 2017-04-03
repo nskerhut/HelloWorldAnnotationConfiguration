@@ -1,0 +1,277 @@
+package com.csra.itc.sharknado.userservice.api.v1.controllers;
+import static com.csra.itc.sharknado.userservice.tables.Profile.PROFILE;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.json.*;
+import org.apache.tomcat.util.http.*;
+import org.jooq.DSLContext;
+import org.jooq.Record;
+import org.jooq.Record1;
+import org.jooq.Record2;
+import org.jooq.Result;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.csra.itc.sharknado.userservice.tables.Profile;
+
+import com.csra.itc.sharknado.userservice.api.v1.domain.GenericRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+@RestController
+public class UserController {
+	Statement stmt;
+	int userId;
+	@Autowired
+	Connection conn;
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(value = "/api/v1/user/login", method = RequestMethod.POST)
+	@ResponseBody
+
+	public String login(@RequestBody GenericRequest request){
+	
+		if (checkCredentials(request.username, request.password))
+		{
+			//                   this will return a boolean to see if the credentials match the database credentials.
+			//                   if its true we will need to get the database id to use on the backend here.
+			//                   so we would call:
+			setId(request.username);
+			JsonObject obj = Json.createObjectBuilder().add("success", "true").add("userId", String.valueOf(userId)).build();
+			System.out.println(obj);
+			
+			
+
+			return obj.toString();
+
+			//                   return I guess the next json that would allow user to view, update, etc. TBD by team
+		}
+
+		//            else {
+		//                   return json giving an error
+		//            }
+		JsonObject obj = Json.createObjectBuilder().add("success", "false").build();
+		System.out.println(obj);
+
+		return obj.toString();
+	}
+	
+	public void setId(String username)
+	{
+
+		try {
+			//STEP 2: Execute a query
+			System.out.println("Creating view statement...");
+			stmt = (Statement) conn.createStatement();
+			String sql;
+			sql = "SELECT Id FROM User where Username = '"+username+"'";
+			ResultSet rs = (ResultSet) stmt.executeQuery(sql);
+
+			//STEP 3: Extract data from result set
+			if(rs.next()){
+
+				//Retrieve by column name              
+				userId = rs.getInt("Id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean checkCredentials(String username, String password)
+	{
+		// Step 1: initialize variables
+		String checkPassword="";
+		try {
+			//STEP 2: Execute a query
+			System.out.println("Checking Credentials....");
+			stmt = (Statement) conn.createStatement();
+			String sql;
+			sql = "SELECT Password FROM User where Username = '"+username+"'";
+			ResultSet rs = (ResultSet) stmt.executeQuery(sql);
+			//STEP 3: Extract data from result set
+			while(rs.next()){
+				//Retrieve by column username this could be changed
+				checkPassword = rs.getString("Password");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//check to see if the variables are equal. this step could be changed to be more efficient.
+		//play with it if you want
+		if (!password.equals(checkPassword)) {
+			System.out.println("Credentials Failed!");
+			return false;
+
+		} else {
+			System.out.println("Credentials Passed!");
+			return true;
+
+		}
+	}
+
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(value = "/api/v1/user/view", method = RequestMethod.POST)
+	@ResponseBody
+	public String view(@RequestBody GenericRequest request){
+
+		return viewInformation(request.userId).toString();
+
+
+	}
+
+	//     view returns an objectNode like the one above.I currently have it this way to keep
+	//     consistent with Michael's example where this page returns something. not sure if
+	//  we can put the return in the class call or not.
+
+	public JsonObject viewInformation(int userId)
+	{
+		//Step 1: initialize variables
+
+		
+		String firstName= "";
+		String lastName= "";
+		String email="";
+		int jobId = 0;
+		int employeeId =0;
+		String jobDescription= "";
+		String dateOfHire= "";
+		try {
+			//STEP 2: Execute a query
+			System.out.println("Creating view statement...");
+			stmt = (Statement) conn.createStatement();
+			String sql;
+			sql = "SELECT * FROM Profile where User_Id = '"+userId+"'";
+			ResultSet rs = (ResultSet) stmt.executeQuery(sql);
+			
+			DSLContext create = DSL.using(conn, SQLDialect.MYSQL);
+			Result<Record> result = create.select().from(PROFILE).where(PROFILE.ID.equal(3)).fetch();
+			
+			System.out.println(result);
+
+			//STEP 3: Extract data from result set
+			while(rs.next()){
+
+				//Retrieve by column name   
+				employeeId = rs.getInt("Employee_Id");
+				firstName = rs.getString("First_Name");
+				lastName = rs.getString("Last_Name");
+				jobId = rs.getInt("Job_Id");
+				jobDescription = rs.getString("Job_Description");
+				dateOfHire = rs.getString("Date_of_Hire");
+				email = rs.getString("Email");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// following code was taken from Michael's example, but instead puts into the json that will
+		// be returned.
+		JsonObject obj = Json.createObjectBuilder().add("Employee_Id", String.valueOf(employeeId))
+				.add("First_Name", firstName).add("Last_Name", lastName).add("Email", email)
+				.add("Job_Id", String.valueOf(jobId)).add("Job_Description", jobDescription)
+				.add("Date_Of_Hire", dateOfHire).build();
+		return obj;
+	}
+
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(value = "/api/v1/user/update", method = RequestMethod.POST)
+	@ResponseBody
+	public String update(@RequestBody GenericRequest request){
+
+		updateInformation(request.firstName, request.lastName, request.email, 
+				request.jobId, request.jobDescription, request.userId);
+		return viewInformation(request.userId).toString();
+
+
+
+	}
+	//  personally i felt that once you update your information, you would want to then view the updated info.
+	//  this should do the trick. if not we can update this return statement. Could also put the view directly
+	//  into the Update class didn't want to do that yet so this would make it easier to change depending
+	//  on what we decide
+
+	public void updateInformation(String firstName, String lastName, String email, 
+			int jobId, String jobDescription, int userId)
+	{
+		try {    
+
+			//Execute a query
+			System.out.println("Creating update statement...");
+			stmt = (Statement) conn.createStatement();
+
+			//STEP 2: Update database
+			System.out.println("Updating");
+
+
+
+			String update = ("Update Profile "
+					+ "Set First_Name = '"+firstName+"', Last_Name = '"+lastName+"', Email = '"+email+"', "
+							+ "Job_Id = '"+jobId+"', Job_Description = '"+jobDescription+"'"
+					+ "where User_Id = "+userId);
+			System.out.println(update);
+			stmt.executeUpdate(update);  
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(value = "/api/v1/user/register", method = RequestMethod.POST)
+	@ResponseBody
+	public String register(@RequestBody GenericRequest request){
+
+		registerInformation(request.username, request.password);
+		return "Signed Up";
+		// this only updates database. we can put into this call a json return like view or make one here
+
+	}
+	
+	public void registerInformation(String username, String password){
+		//check to see if email exists in db already. this is based on email being unique in the db
+		if (!checkUsername(username)) {
+			try {
+				//Execute a query
+				stmt = (Statement) conn.createStatement();
+				System.out.println("inserting into db new credentials...");
+				String insert = ("INSERT INTO User(Username, Password) "
+						+ "VALUES ('"+username+"', '"+password+"')");
+				stmt.executeUpdate(insert);
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}else {
+			System.out.println("Credentials already exist");
+		}
+	}
+	
+	public boolean checkUsername(String username) {
+		//Step 1: initialize variable
+		boolean st = false;
+		try {
+			//STEP 2: Execute a query
+			System.out.println("Creating username check statement...");
+			stmt = (Statement) conn.createStatement();
+			String sql;
+			sql = "SELECT Username FROM User where Username = '"+username+"'";
+			ResultSet rs = (ResultSet) stmt.executeQuery(sql);
+
+			//STEP 3: Extract data from result set  
+			System.out.println("checking to see if username exists");
+			st =rs.next();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// return boolean
+		return st;
+	}
+}

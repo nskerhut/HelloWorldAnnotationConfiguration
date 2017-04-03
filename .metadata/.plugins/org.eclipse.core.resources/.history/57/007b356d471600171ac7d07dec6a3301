@@ -1,0 +1,49 @@
+package com.csra.itc;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class EmployeeMicroserviceViewTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testRegisterEmployee() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testModifyEmployee() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testTerminateEmployee() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testSetSessionToken() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testVerifySessionToken() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testGetUserId() {
+		fail("Not yet implemented"); // TODO
+	}
+
+}

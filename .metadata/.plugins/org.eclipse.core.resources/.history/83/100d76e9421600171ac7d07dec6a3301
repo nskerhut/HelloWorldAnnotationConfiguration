@@ -1,0 +1,10 @@
+package com.csra.itc;
+
+public class UserModel {
+	private int userId;
+	private String firstName;
+	private String lastName;
+	
+	public UserModel() { }
+
+}

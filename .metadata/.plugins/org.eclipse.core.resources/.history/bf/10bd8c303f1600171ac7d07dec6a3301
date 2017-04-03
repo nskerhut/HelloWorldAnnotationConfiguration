@@ -1,0 +1,70 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author tonyseely
+ *
+ */
+public class EmployeeServiceController {
+	private EmployeeModel model;
+	/**
+	 * @return the model
+	 */
+	public EmployeeModel getModel() {
+		return model;
+	}
+
+	/**
+	 * @param model the model to set
+	 */
+	public void setModel(EmployeeModel model) {
+		this.model = model;
+	}
+	
+	/**
+	 * Default Constructor, instantiates object.
+	 */
+	public EmployeeServiceController(){
+		model = new EmployeeModel();
+		
+	}
+	
+	/**
+	 * Controls how employee registration occurs
+	 * 
+	 * @param employee
+	 * @param ModifyUserId
+	 */
+	public void RegisterEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+	
+	/**
+	 * Controls how an employee is modified.
+	 * @param employee
+	 * @param ModifyUserId
+	 */
+	public void ModifyEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+	
+	/**
+	 * Controls how the employee is terminated. 
+	 * @param employee
+	 * @param ModifyUserId
+	 */
+	public void TerminateEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+	
+	/**
+	 * Controls how an employee is retrieved then viewed. 
+	 * @param employee
+	 * @param ModifyUserId
+	 */
+	public void GetEmployee(EmployeeModel employee, int ModifyUserId) {
+		
+	}
+}

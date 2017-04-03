@@ -1,0 +1,118 @@
+
+<div *ngIf="profileBool">
+
+
+<fieldset>
+    <legend>Profile</legend>
+    <div class="top">
+      <label class="col-lg-2 control-label">Employee Id: </label>
+      {{test.Employee_Id}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+    <div class="top">
+      <label class="col-lg-2 control-label">First Name: </label>
+      {{test.First_Name}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+    <div class="top">
+      <label  class="col-lg-2 control-label">Last Name: </label>
+      {{test.Last_Name}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+    <div class="top">
+      <label class="col-lg-2 control-label">Date of Hire: </label>
+            {{test.Date_Of_Hire}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+    <div class="top">
+      <label  class="col-lg-2 control-label">Job Id: </label>
+            {{test.Job_Id}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+    <div class="top">
+      <label class="col-lg-2 control-label">Job Description: </label>
+            {{test.Job_Description}}
+      <div class="col-lg-10">
+      </div>
+    </div>
+
+
+      <div class="buttons">
+        <button (click)="toggle()" type="submit" class="btn btn-yes">Update</button>
+      </div>
+</fieldset>
+</div>
+
+
+
+
+<div *ngIf="toggleBool">
+  <fieldset>
+      <legend>Update Profile</legend>
+      <div class="top">
+        <label class="col-lg-2 control-label">Employee Id: </label>
+        {{test.Employee_Id}}
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+      <div class="top">
+        <label class="col-lg-2 control-label">First Name: </label>
+            <input [(ngModel)]="test.First_Name" />
+
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+      <div class="top">
+        <label  class="col-lg-2 control-label">Last Name: </label>
+        <input [(ngModel)]="test.Last_Name" />
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+      <div class="top">
+        <label class="col-lg-2 control-label">Date of Hire: </label>
+              {{test.Date_Of_Hire}}
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+      <div class="top">
+        <label  class="col-lg-2 control-label">Job Id: </label>
+              <input [(ngModel)]="test.Job_Id" />
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+      <div class="top">
+        <label class="col-lg-2 control-label">Job Description: </label>
+              <input [(ngModel)]="test.Job_Description" />
+        <div class="col-lg-10">
+        </div>
+      </div>
+
+
+        <div class="buttons">
+          <button (click)="toggle()"type="submit" class="btn btn-yes">Go Back</button>
+          <button (click)="updateUser(test.First_Name,
+          test.Last_Name,
+          test.Email,
+          test.Job_Id,
+          test.Job_Description,
+          this.userId)" type="submit" class="btn btn-yes">Submit</button>
+        </div>
+  </fieldset>
+
+
+</div>

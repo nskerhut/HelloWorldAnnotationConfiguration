@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author sskerhut
+ * Provides connectivity to Database for EmployeeServiceController
+ */
+public class DatabaseView {
+
+	/**
+	 * 
+	 */
+	public DatabaseView() {
+		public boolean RegisterEmployee(Employee employee){
+			return false;
+		}
+		public boolean ModifyEmployee(Employee employee, int ModifyUserId){
+			return false;
+		}
+		
+	}
+
+}

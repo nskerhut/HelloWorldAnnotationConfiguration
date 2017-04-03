@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * @author tonyseely
+ *
+ */
+public class EmployeeServiceController {
+	public void RegisterEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+	
+	public void ModifyEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+	
+	public void TerminateEmployee(EmployeeModel employee, int ModifyUserId){
+		
+	}
+}

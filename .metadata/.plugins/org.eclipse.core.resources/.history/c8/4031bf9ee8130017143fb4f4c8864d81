@@ -1,0 +1,44 @@
+
+.login-form {
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+
+}
+.log-header{
+  padding: 10% 0%;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5)
+}
+
+input#username{
+ background-image: url('/assets/image/user.png');
+ background-repeat: no-repeat;
+ text-indent: 20px;
+ background-size: 15px;
+ background-position:6px 8.5px;
+
+}
+
+input#username:focus{
+ background-image:none;
+}
+
+input#password{
+ background-image: url('/assets/image/lock.png');
+ background-repeat: no-repeat;
+ text-indent: 20px;
+ background-size: 15px;
+ background-position:6px 8.5px;
+
+}
+
+input#password:focus{
+ background-image:none;
+
+}

@@ -1,0 +1,5 @@
+package HelloWorldMaven;
+
+public class HelloWorldModel {
+
+}

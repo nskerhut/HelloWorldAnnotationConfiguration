@@ -1,0 +1,53 @@
+/**
+ * 
+ */
+package com.csra.itc;
+
+/**
+ * Provides bridge between EmployeeServiceController and database. 
+ * 
+ * {@literal Modified 03/31/2017 sskerhut}
+ * @author tonyseely
+ * 
+ */
+public class EmployeeDatabaseView {
+	/**
+	 * Creates a new Employee in the database.
+	 * @author sskerhut
+	 * @param employee Model
+	 * @param ModifyUserId Who is making the change.
+	 * @return Success status of database procedure
+	 */
+	public boolean RegisterEmployee(final EmployeeModel employee, final int ModifyUserId){
+		return false;
+	}
+	/**
+	 * Changes employee information in the database 
+	 * @param employee Model
+	 * @param ModifyUserId Who is making the change.
+	 * @return Success status of database procedure
+	 */
+	public boolean ModifyEmployee(final EmployeeModel employee, final int ModifyUserId){
+		
+		return false;
+	}
+	/**
+	 * Makes the Employee as terminated.
+	 * @author sskerhut 
+	 * @param employee Model
+	 * @param ModifyUserId Who is making the change.
+	 * @return Success status of database procedure
+	 */
+	public boolean TerminateEmployee(final EmployeeModel employee, final int ModifyUserId) {
+		return false;
+	}
+	/**
+	 * Returns the employee information based on the UserId Provided in the employee.
+	 * @author sskerhut
+	 * @param employee
+	 * @return An employee specified by the user id in the employee passed in.
+	 */
+	public EmployeeModel GetEmployee(final EmployeeModel employee) { 
+		return null;
+	}
+}

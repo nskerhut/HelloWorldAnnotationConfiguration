@@ -1,0 +1,22 @@
+package com.csra.autowire;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+//@SpringBootApplication
+public class HelloWorldAutoWireApplication {
+
+	public static void main(String[] args) {
+		//SpringApplication.run(HelloWorldAutoWireApplication.class, args);
+		ApplicationContext context = new ClassPathXmlApplicationContext("app.Config.xml");
+		HelloSystem system = context.getBean("systemAutowiredbyType",HelloSystem.class);
+		System.out.println(system.getWorld().getMyValue());
+		
+		System.out.println(context.getBean("systemAutowiredbyType",HelloSystem.class).getWorld().getMyValue());
+		
+		((ClassPathXmlApplicationContext)context).close();
+	}
+}
